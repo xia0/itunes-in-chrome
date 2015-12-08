@@ -1,0 +1,55 @@
+<html>
+<head>
+	<title>iTunes in Chrome</title>
+
+	<style>
+		body {background-color:black;} 
+		p {
+			color:white;
+			font-family: "helvetica", sans-serif;
+		}
+	</style>
+
+</head>
+<body>
+
+	
+
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript" src="buzz.min.js"></script>
+	<script type="text/javascript">
+
+			var data_volume = 100;
+			var data_state = "paused";
+			var data_file = "/Volumes/Pedobear/xiao/iTunes/iTunes Media/Music/Muse/Drones/03 Psycho.mp3";
+			var data_album = "Drones";
+			var data_artist = "Muse";
+			var data_title = "Psycho";
+			var data_position = 84;
+			var data_length = 328.071014404297;
+
+		var sound = new buzz.sound("file://" + data_file, {loop: false});
+		
+		sound.setVolume(data_volume);
+		sound.setTime(data_position);
+
+		if (data_state == "playing") {
+			sound.play();
+		}
+		else {
+			sound.stop();
+		}
+
+	</script>
+
+	<p><img src="cover" /></p>
+	<p><script>document.write(data_title);</script></p>
+	<p><script>document.write(data_artist);</script></p>
+	<p><script>document.write(data_album);</script></p>
+	<p><script>document.write(data_volume);</script></p>
+
+
+</body>
+
+
+</html>

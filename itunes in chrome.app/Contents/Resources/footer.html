@@ -1,0 +1,26 @@
+
+		var sound = new buzz.sound("file://" + data_file, {loop: false});
+		
+		sound.setVolume(data_volume);
+		sound.setTime(data_position);
+
+		if (data_state == "playing") {
+			sound.play();
+		}
+		else {
+			sound.stop();
+		}
+
+	</script>
+
+	<p><img src="cover" /></p>
+	<p><script>document.write(data_title);</script></p>
+	<p><script>document.write(data_artist);</script></p>
+	<p><script>document.write(data_album);</script></p>
+	<p><script>document.write(data_volume);</script></p>
+
+
+</body>
+
+
+</html>
