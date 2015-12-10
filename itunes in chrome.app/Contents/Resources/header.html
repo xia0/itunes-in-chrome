@@ -3,11 +3,75 @@
 	<title>iTunes in Chrome</title>
 
 	<style>
-		body {background-color:black;} 
-		p {
-			color:white;
+		body {
+			background-color:black;
+			color:#ddd;
 			font-family: "helvetica", sans-serif;
+			
 		}
+
+    #progress {
+      height: 300px;
+			width: 300px;
+	    -webkit-border-radius: 50%;
+			background-image: url('cover');
+			background-size: cover;
+    }
+    #progress > svg {
+      height: 100%;
+      display: block;
+    }
+		
+		#display {
+			width: 800px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-left: -400px;
+			margin-top: -200px;
+		}
+		#display > div {
+			display: inline-block;
+			vertical-align: middle;
+		}
+		
+		#track-text {
+			margin-left: 22px;
+			width: 460px;
+			text-align: center;
+		}
+		
+		#volume-container {
+			vertical-align: middle;
+			text-align: middle;
+		}
+		#volume {
+			width: 200px;
+			margin-left: 4px;
+			margin-bottom: 7px;
+		}
+		#volume, #volume-container > img {
+			display: inline-block;
+		}
+		
+		#title {
+			font-size: 24px;
+		}
+		#artist {
+			font-size: 18px;
+		}
+		#album {
+			font-size: 18px;
+		}
+		
+		#volume-prompt {
+			font-size: 10px;
+			color: #888;
+			margin: 0;
+			margin-top: -15px;
+			opacity: 0;
+		}
+		
 	</style>
 
 </head>
@@ -17,4 +81,6 @@
 
 	<script type="text/javascript" src="jquery.min.js"></script>
 	<script type="text/javascript" src="buzz.min.js"></script>
+	<script type="text/javascript" src="progressbar.min.js"></script>
 	<script type="text/javascript">
+		// Start data from iTunes

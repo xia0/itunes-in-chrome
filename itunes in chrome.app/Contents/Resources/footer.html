@@ -1,3 +1,4 @@
+// End data from iTunes
 
 		var sound = new buzz.sound("file://" + data_file, {loop: false});
 		
@@ -13,12 +14,53 @@
 
 	</script>
 
-	<p><img src="cover" /></p>
-	<p><script>document.write(data_title);</script></p>
-	<p><script>document.write(data_artist);</script></p>
-	<p><script>document.write(data_album);</script></p>
-	<p><script>document.write(data_volume);</script></p>
+	<div id="display">
+		<div class="progress" id="progress"></div>
+		<div id="track-text">
+			<p id="title"><script>document.write(data_title);</script></p>
+			<p id="artist"><script>document.write(data_artist);</script></p>
+			<p id="album"><script>document.write(data_album);</script></p>
+			<div id="volume-container">
+				<img src="volume.png" /><div class="volume" id="volume"></div>
+				<p id="volume-prompt">Change in iTunes</p>
+			</div>
+		</div>
+	</div>
 
+	<script>
+		window.onload = function onLoad() {
+		  var circle = new ProgressBar.Circle('#progress', {
+		    color: '#eb0',
+				strokeWidth: 2,
+				trailColor: '#555',
+				trailWidth: 2,
+		    duration: data_length * 1000
+		  });
+			circle.set(data_position/data_length);
+		  if (data_state == "playing") {
+				circle.animate(1);
+			}
+		
+		  var line = new ProgressBar.Line('#volume', {
+		    color: '#aaa',
+				strokeWidth: 1,
+				trailColor: '#555',
+				trailWidth: 1
+		  });
+			line.set(data_volume/100);
+		};
+	
+		$('#volume-container').mouseenter(function() {
+			$('#volume-prompt').stop().fadeTo("fast", 1);
+			$('#volume').stop().fadeTo("fast", 0.25);
+		}).mouseleave(function() {
+			$('#volume-prompt').stop().fadeTo("fast", 0);
+			$('#volume').stop().fadeTo("fast", 1);
+		});
+	
+	</script>
+
+	<p style="color: black;">chromytunes</p>
 
 </body>
 
